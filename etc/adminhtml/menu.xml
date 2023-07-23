@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Webential_Testimonial::view" title="Testimonial Manager" module="Webential_Testimonial" sortOrder="50" resource="Webential_Testimonial::view"/>
+        <add id="Webential_Testimonial::menu" title="Testimonial List" module="Webential_Testimonial" sortOrder="20" parent="Webential_Testimonial::view"
+					action="testimonial/testimoniallist/index" resource="Webential_Testimonial::menu"/>
+          <add id="Webential_Testimonial::add" title="Testimonial Add/Edit" module="Webential_Testimonial" sortOrder="20" parent="Webential_Testimonial::view"
+  					action="testimonial/addtestimonial/index" resource="Webential_Testimonial::add"/>
+    </menu>
+</config>

@@ -1,0 +1,59 @@
+<div class="testimonial-bttn">
+<button type="button" class="action open-modal-form bttn-testimonial">Add Testimonials!</button>
+</div>
+<h2>Responsive Testimonials</h2>
+<p>Resize the browser window to see the effect.</p>
+<div id="modal-form" style="display:none;">
+  <form name="addData" method="post" id="addData" class="form"
+            action="<?php echo $this->getUrl('front_testimonial/index/save', ['_secure' => true]);?>"
+            data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+            data-mage-init='{"validation":{}}'>
+          <fieldset class="fieldset">
+              <legend class="legend"><span><?= $block->escapeHtmlAttr(__('Fill Following Detail')) ?></span></legend>
+              <fieldset class="fieldset row">
+                  <div class="fields col-md-6">
+                      <div class="field name required">
+                          <label class="label" for="title"><span><?= $block->
+                              escapeHtmlAttr(__('Customer Name')) ?></span></label>
+                          <div class="control">
+                              <input name="customer_name" id="customer_name" title="customer_name" value="" class="input-text" type="text">
+                          </div>
+                      </div>
+                      <div class="field name required">
+                          <label class="label" for="title"><span><?= $block->
+                              escapeHtmlAttr(__('Testimoial')) ?></span></label>
+                          <div class="control">
+                              <input name="comment" id="comment" title="Testimoial" value="" class="input-text" type="text">
+                          </div>
+                      </div>
+                  </div>
+              </fieldset>
+          </fieldset>
+          <div class="actions-toolbar">
+              <div class="primary">
+                  <button type="submit" class="action submit primary bttn-testimonial" title="Save"><span><?= $block->
+                      escapeHtmlAttr(__('Save')) ?></span></button>
+              </div>
+          </div>
+      </form>
+</div>
+
+<?php
+$testimonialData= $block->getTestimonialList()->getData();
+foreach ($testimonialData as $testimonialDatas) {
+  //echo $testimonialDatas['approved_disapproved'];
+  if($testimonialDatas['approved_disapproved'] !== "Disapproved"
+  && $testimonialDatas['status'] !== "0"){?>
+<div class="container">
+  <p><span><?php echo $testimonialDatas['customer_name'];?></span></p>
+  <p><?php echo $testimonialDatas['comment'];?></p>
+</div>
+<?php }};?>
+
+<script type="text/x-magento-init">
+    {
+        ".open-modal-form": {
+            "Webential_Testimonial/js/modal-form": {}
+        }
+    }
+</script>

@@ -1,0 +1,27 @@
+{
+    "testimonial_list": {
+        "column": {
+            "id": true,
+            "customer_name": true,
+            "comment": true,
+            "approved_disapproved": true,
+            "status": true,
+            "admin_create_id": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "testimonial_new_add": {
+        "column": {
+            "id": true,
+            "customer_name": true,
+            "comment": true,
+            "approved_disapproved": true,
+            "status": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}
